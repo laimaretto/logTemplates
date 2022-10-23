@@ -1,5 +1,5 @@
 # logTemplates
-Templates for the [logChecker](https://github.com/laimaretto/logChcker) tool.
+Templates for the [logChecker](https://github.com/laimaretto/logChecker) tool.
 
 The templates can be written either using `textFSM` or `TTP`. Thoug most of the templates in here are textFSM based.
 

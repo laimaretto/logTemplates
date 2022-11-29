@@ -1,0 +1,18 @@
+#Command: /show system memory.pools
+#Timos: 20
+#Version: 1.0.0
+Value Required Name (.+?)
+Value Max_allowed (.+)
+Value Current_Size (\S+)
+Value Max_so_far (\S+)
+Value In_Use (\S+)
+Value Fillup CurrentTotalSize (\S+)
+Value Fillup TotalInUse (\S+)
+Value Fillup AvailableMemory (\S+)
+
+Start
+ ^Name\s+Max Allowed\s+Current Size\s+Max So Far\s+In Use
+ ^Current Total Size\s+.\s+${CurrentTotalSize}\s+bytes -> Record
+ ^Total In Use\s+.\s+${TotalInUse}\s+bytes -> Record
+ ^Available Memory\s+.\s+${AvailableMemory}\s+bytes -> Record
+ ^${Name}\s\s+${Max_allowed}\s\s+${Current_Size}\s+${Max_so_far}\s+${In_Use} -> Record

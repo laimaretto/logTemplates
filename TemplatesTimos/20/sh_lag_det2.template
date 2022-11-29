@@ -1,0 +1,84 @@
+#Command: /show lag detail
+#Timos: 20
+#Version: 1.0.0
+Value Lag_id (.+)
+Value Mode (.+)
+Value Adm (.+)
+Value Opr (.+)
+Value Thres_Last_Cleared (.+)
+Value Thres_Exceeded_Cnt (.+)
+Value Dynamic_Cost (.+)
+Value Encap_Type (.+)
+Value Configured_Address (.+)
+Value Lag_IfIndex (.+)
+Value Hardware_Address (.+)
+Value Per_Link_Hash (.+)
+Value Include_Egr_Hash_Cfg (.+)
+Value Forced (.+)
+Value Per_FP_Ing_Queuing (.+)
+Value Per_FP_Egr_Queuing (.+)
+Value Per_FP_SAP_Instance (.+)
+Value Access_Bandwidth (.+)
+Value Access_Booking_Factor (.+)
+Value Access_Available_BW (.+)
+Value Access_Booked_BW (.+)
+Value LACP (.+)
+Value LACP_Mode (.+)
+Value LACP_Transmit_Intvl (.+)
+Value LACP_xmit_stdby (.+)
+Value Selection_Criteria (.+)
+Value Slave_to_partner (.+)
+Value MUX_control (.+)
+Value Subgrp_hold_time (.+)
+Value Remaining_time (.+)
+Value Subgrp_selected (.+)
+Value Subgrp_candidate (.+)
+Value Subgrp_count (.+)
+Value System_Id (.+)
+Value System_Priority (.+)
+Value Admin_Key (.+)
+Value Oper_Key (.+)
+Value Prtr_System_Id (.+)
+Value Prtr_System_Priority (.+)
+Value Prtr_Oper_Key (.+)
+Value Standby_Signaling (.+)
+Value Port_hashing (.+)
+Value Port_weight_speed (.+)
+Value Ports_Up (.+)
+Value Weights_Up (.+)
+Value Hash_Weights_Up (.+)
+Value Monitor_oper_group (.+)
+Value Adaptive_loadbal (.+)
+Value Tolerance (.+)
+
+Start
+ ^Lag-id\s\s+. ${Lag_id}\s\s+Mode\s\s+. ${Mode} -> Continue
+ ^Adm\s\s+. ${Adm}\s\s+Opr\s\s+. ${Opr} -> Continue
+ ^Thres. Last Cleared . ${Thres_Last_Cleared}\s\s+Thres. Exceeded Cnt\s\s+. ${Thres_Exceeded_Cnt} -> Continue
+ ^Dynamic Cost\s\s+. ${Dynamic_Cost}\s\s+Encap Type\s\s+. ${Encap_Type} -> Continue
+ ^Configured Address\s\s+. ${Configured_Address}\s\s+Lag-IfIndex\s\s+. ${Lag_IfIndex} -> Continue
+ ^Hardware Address\s\s+. ${Hardware_Address} -> Continue
+ ^Per-Link-Hash\s\s+. ${Per_Link_Hash}\s\s+ -> Continue
+ ^Include-Egr-Hash-Cfg. ${Include_Egr_Hash_Cfg}\s\s+Forced\s\s+. ${Forced} -> Continue
+ ^Per FP Ing Queuing\s\s+. ${Per_FP_Ing_Queuing}\s\s+Per FP Egr Queuing\s\s+. ${Per_FP_Egr_Queuing} -> Continue
+ ^Per FP SAP Instance . ${Per_FP_SAP_Instance}\s\s+ -> Continue
+ ^Access Bandwidth\s\s+. ${Access_Bandwidth}\s\s+Access Booking Factor. ${Access_Booking_Factor} -> Continue
+ ^Access Available BW . ${Access_Available_BW} -> Continue
+ ^Access Booked BW\s\s+. ${Access_Booked_BW} -> Continue
+ ^LACP\s\s+. ${LACP}\s\s+Mode\s\s+. ${LACP_Mode} -> Continue
+ ^LACP Transmit Intvl . ${LACP_Transmit_Intvl}\s\s+LACP xmit stdby\s\s+. ${LACP_xmit_stdby} -> Continue
+ ^Selection Criteria\s\s+. ${Selection_Criteria}\s\s+Slave-to-partner\s\s+. ${Slave_to_partner} -> Continue
+ ^MUX control\s\s+. ${MUX_control} -> Continue
+ ^Subgrp hold time\s\s+. ${Subgrp_hold_time}\s\s+Remaining time\s\s+. ${Remaining_time} -> Continue
+ ^Subgrp selected\s\s+. ${Subgrp_selected}\s\s+Subgrp candidate\s\s+. ${Subgrp_candidate} -> Continue
+ ^Subgrp count\s\s+. ${Subgrp_count}\s\s+ -> Continue
+ ^System Id\s\s+. ${System_Id}\s\s+System Priority\s\s+. ${System_Priority} -> Continue
+ ^Admin Key\s\s+. ${Admin_Key}\s\s+Oper Key\s\s+. ${Oper_Key} -> Continue
+ ^Prtr System Id\s\s+. ${Prtr_System_Id}\s\s+Prtr System Priority . ${Prtr_System_Priority} -> Continue
+ ^Prtr Oper Key\s\s+. ${Prtr_Oper_Key} -> Continue
+ ^Standby Signaling\s\s+. ${Standby_Signaling} -> Continue
+ ^Port hashing\s\s+. ${Port_hashing}\s\s+Port weight speed\s\s+. ${Port_weight_speed} -> Continue
+ ^Ports Up\s\s+. ${Ports_Up} -> Continue
+ ^Weights Up\s\s+. ${Weights_Up}\s\s+Hash-Weights Up\s\s+. ${Hash_Weights_Up} -> Continue
+ ^Monitor oper group\s\s+. ${Monitor_oper_group} -> Continue
+ ^Adaptive loadbal.\s\s+. ${Adaptive_loadbal}\s\s+Tolerance\s\s+. ${Tolerance} -> Record

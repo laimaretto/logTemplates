@@ -1,0 +1,14 @@
+#Command: /show system cpu
+#Timos: 20
+#Version: 1.0.0
+Value Filldown Sample_period (.+)
+Value Required Name (.+?)
+Value CPU_time_uSec (\d+(.\d+)+?)
+Value CPU_usage (.?\d+.\d+.)
+Value Capacity_Usage (\S+)
+
+Start
+ ^CPU Utilization .Sample period. ${Sample_period}.
+ ^${Name}\s\s+${CPU_time_uSec}\s+${CPU_usage}\s+${Capacity_Usage} -> Record
+ ^(\s{3})?${Name}\s\s+${CPU_time_uSec}\s+${CPU_usage} -> Record
+

@@ -1,0 +1,17 @@
+#Command: /show lag detail
+#Timos: 20
+#Version: 1.0.0
+Value Filldown LAG (\S+)
+Value Required Port_ID (.+)
+Value Adm ([uU][pP]|[Dd][oO]?[wW][nN])
+Value Act_Stdby (\S+)
+Value Opr ([uU][pP]|[Dd][oO]?[wW][nN])
+Value Primary (\S+)
+Value Subgroup (\S+)
+Value Forced (\S+)
+Value Prio (\S+)
+
+Start
+  ^LAG ${LAG}
+  ^${Port_ID}\s+${Adm}\s+${Act_Stdby}\s+${Opr}\s+${Primary}\s+${Subgroup}\s+${Forced}\s+${Prio} -> Record
+  ^${Port_ID}\s+${Adm}\s+${Act_Stdby}\s+${Opr}\s+${Subgroup}\s+${Forced}\s+${Prio} -> Record

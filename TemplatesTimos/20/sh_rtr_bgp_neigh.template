@@ -1,0 +1,15 @@
+#Command: /show router bgp neighbor
+#majorDown: Active,Idle,Connect
+#Timos: 20
+#Version: 1.0.0
+Value Peer ((\d+\.\d+\.\d+\.\d+)|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?))
+Value Group (.+)
+Value State (\S+)
+Value Last_State (\S+)
+
+Start
+  ^\w:\S+(#|>) /show router bgp neighbor
+  ^.?\w:\S+(#|>) /?show router bgp neighbor
+  ^Peer\s+.\s${Peer}
+  ^Group\s+.\s${Group}
+  ^State\s+.\s${State}\s+Last State\s+.\s${Last_State} -> Continue.Record

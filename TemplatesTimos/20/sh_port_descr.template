@@ -1,0 +1,16 @@
+#Command: /show port description
+#Timos: 20
+#Version: 1.0.0
+Value Filldown Slot (.+)
+Value Required Port_ID (\S+)
+Value Description (.+)
+
+
+Start
+  ^.show port description
+  ^Port Id\s+Description
+  ^\S{3}\s\S{3}\s+\d+\s\d+.\d+.\d\s\S{3}\s\d{4}
+  ^Port Descriptions on Slot ${Slot}
+  ^Port Descriptions on Satellite ${Slot}
+  ^${Port_ID}\s+${Description} -> Record
+  

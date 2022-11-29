@@ -1,0 +1,15 @@
+#Command: /show router ospf opaque.database
+#Timos: 20
+#Version: 1.0.0
+Value Filldown Instance (\S+)
+Value Type (\S+)
+Value LinkStateID (\S+)
+Value Id (\S+)
+Value AdvRtrId (\S+)
+Value Age (\S+)
+Value Sequence (\S+)
+Value Cksum (\S+)
+
+Start
+ ^Rtr Base OSPFv2 Instance ${Instance} .+
+ ^${Type}\s+${Id}\s+${LinkStateID}\s+${AdvRtrId}\s+${Age}\s+${Sequence}\s+${Cksum} -> Record

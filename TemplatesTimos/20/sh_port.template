@@ -1,0 +1,22 @@
+#Command: /show port
+#Timos: 20
+#Version: 1.0.0
+Value Filldown Slot_Sat (.+)
+Value Required Port_ID (\S+)
+Value Adm ([uU][pP]|[Dd][oO]?[wW][nN])
+Value Link ((Yes)|(No))
+Value Port_State ((Down)|(Link Up)|(Up))
+Value Cfg_MTU (\S+)
+Value Oper_MTU (\S+)
+Value LAG_Bndl (\S+)
+Value Port_Mode (\S+)
+Value Port_Encap (\S+)
+Value Port_Type (\S+)
+Value C_QS_S_XPF_MDIMDX (.+)
+
+Start
+  ^Ports on Slot ${Slot_Sat}
+  ^Ports on Satellite ${Slot_Sat}
+  ^${Port_ID}\s+${Adm}\s+${Link}\s+${Port_State}\s+${Cfg_MTU}\s+${Oper_MTU}\s+${LAG_Bndl}\s+${Port_Mode}\s+${Port_Encap}\s+${Port_Type}\s+${C_QS_S_XPF_MDIMDX} -> Record
+  ^${Port_ID}\s+${Adm}\s+${Link}\s+${Port_State}\s+${Cfg_MTU}\s+${Oper_MTU}\s+${LAG_Bndl}\s+${Port_Mode}\s+${Port_Encap}\s+${Port_Type} -> Record
+  ^${Port_ID}\s+${Adm}\s+${Port_State}\s+${Port_Type}\s+${C_QS_S_XPF_MDIMDX} -> Record

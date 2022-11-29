@@ -1,0 +1,11 @@
+#Command: /show chassis
+#Timos: 20
+#Version: 1.0.0
+Value Chassis (\S+)
+Value Role (.+)
+Value Status ((up)|(down))
+
+
+Start
+  ^Chassis\s+Role\s+Status
+  ^${Chassis}\s+${Role}\s\s+${Status} -> Continue.Record

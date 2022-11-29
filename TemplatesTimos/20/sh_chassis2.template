@@ -1,0 +1,39 @@
+#Command: /show chassis
+#Timos: 20
+#Version: 1.0.0
+Value Name (.+)
+Value Type (.+)
+Value MAC (\S+)
+Value Chassis_Topology (.+)
+Value Location (.+)
+Value Coordinates (.+)
+Value CLLI_Code (.+)
+Value N_slots (.+)
+Value Oper_n_slots (.+)
+Value N_faceplate (.+)
+Value N_phy_ports (.+)
+Value Critical_LED (.+)
+Value Major_LED (.+)
+Value Minor_LED (.+)
+Value Over_Temp_state (.+)
+Value FP_Gen (.+)
+Value Sys_Profile (.+)
+
+Start
+  ^\s+Name\s+:\s+${Name}
+  ^\s+Type\s+:\s+${Type}
+  ^\s+Chassis Topology\s+:\s+${Chassis_Topology}
+  ^\s+Location\s+:\s+${Location}
+  ^\s+Coordinates\s+:\s+${Coordinates}
+  ^\s+CLLI code\s+:\s+${CLLI_Code}
+  ^\s+Number of slots\s+:\s+${N_slots}
+  ^\s+Oper number of slots\s+:\s+${Oper_n_slots}
+  ^\s+Num of faceplate ports/connectors\s+:\s+${N_faceplate}
+  ^\s+Num of physical ports\s+:\s+${N_phy_ports}
+  ^\s+Critical LED state\s+:\s+${Critical_LED}
+  ^\s+Major LED state\s+:\s+${Major_LED}
+  ^\s+Minor LED state\s+:\s+${Minor_LED}
+  ^\s+Over Temperature state\s+:\s+${Over_Temp_state}
+  ^\s+Base MAC address\s+:\s+${MAC}
+  ^\s+FP Generations\s+:\s+${FP_Gen}
+  ^\s+System Profile\s+:\s+${Sys_Profile}

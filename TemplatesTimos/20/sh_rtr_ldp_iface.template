@@ -1,0 +1,20 @@
+#Command: /show router ldp interface
+#Timos: 20
+#Version: 1.0.0
+Value Filldown Interface (\S+)
+Value Filldown int_adm ([uU][pP]|[Dd][oO][wW][nN])
+Value Filldown int_opr ([uU][pP]|[Dd][oO][wW][nN])
+Value Required Sub_Interface (\S+)
+Value sub_int_adm ([uU][pP]|[Dd][oO][wW][nN])
+Value sub_int_opr ([uU][pP]|[Dd][oO][wW][nN])
+Value Hello_fctr (\S+)
+Value Hold_time (\S+)
+Value KA_Fctr (\S+)
+Value KA_Time (\S+)
+Value Transp_Addr (\S+)
+
+Start
+  ^.?\w:\S+(#|>) /?show router ospf interface
+  ^${Interface}\s+${int_adm}.${int_opr}\s+ -> Continue
+  ^\s+${Sub_Interface}\s+${sub_int_adm}.${sub_int_opr}\s+${Hello_fctr}\s+${Hold_time}\s+${KA_Fctr}\s+${KA_Time}\s+${Transp_Addr} -> Continue.Record
+

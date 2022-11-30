@@ -1,0 +1,9 @@
+#Command: /show router ldp session summary
+#Timos: 20
+#Version: 1.0.0
+Value IPv4_sessions (\S+)
+Value IPv6_sessions (\S+)
+
+Start
+  ^\s+No. of IPv4 Sessions: ${IPv4_sessions}
+  ^\s+No. of IPv6 Sessions: ${IPv6_sessions}

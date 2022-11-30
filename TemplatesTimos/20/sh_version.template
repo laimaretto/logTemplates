@@ -1,0 +1,9 @@
+#Command: /show version
+#Timos: 20
+#Version: 1.0.0
+Value Timos (\S+)
+Value cpm (\S+)
+Value Nokia (.+)
+
+Start
+ ^${Timos} ${cpm} Nokia ${Nokia} Copyright.+

@@ -1,0 +1,13 @@
+#Command: /show router mpls.labels summary
+#Timos: 20
+#Version: 1.0.0
+Value Static_Lbl_Range (\S+)
+Value Bgp_Lbls_Hold_Timer (\S+)
+Value Seg_Routing_Start_Lbl (\S+)
+Value Seg_Routing_End_Lbl (\S+)
+
+Start
+  ^Static Label Range\s+. ${Static_Lbl_Range}
+  ^Bgp Labels Hold Timer\s+. ${Bgp_Lbls_Hold_Timer}
+  ^Segment Routing Start Label\s+. ${Seg_Routing_Start_Lbl}
+  ^Segment Routing End Label\s+. ${Seg_Routing_End_Lbl}

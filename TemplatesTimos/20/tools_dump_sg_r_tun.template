@@ -1,0 +1,14 @@
+#Command: /tools dump router segment.routing tunnel
+#Timos: 20
+#Version: 1.0.0
+Value Filldown prefix (\d+\.\d+\.\d+\.\d+)|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)
+Value Filldown sid_type (\S+)
+Value Filldown fwd_type (\S+)
+Value Filldown in_label (\d+)
+Value Filldown prot_inst (\S+)
+Value next_hop (\d+\.\d+\.\d+\.\d+)|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)
+
+Start
+ ^ ${prefix}
+ ^ ${sid_type}\s+${fwd_type}\s+${in_label}\s+${prot_inst}
+ ^ \s+${next_hop} -> Record

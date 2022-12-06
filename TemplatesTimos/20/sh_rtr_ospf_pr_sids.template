@@ -1,0 +1,14 @@
+#Command: /show router ospf prefix-sids
+#Timos: 20
+#Version: 1.0.0
+Value Prefix ((\d+\.\d+\.\d+\.\d+)(.\d+)?|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)(.\S+)?)
+Value Area ((\d+\.\d+\.\d+\.\d+)(.\d+)?|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)(.\S+)?)
+Value RtType (\S+)
+Value SID (\d+)
+Value Adv_Rtr (((\d+\.\d+\.\d+\.\d+)(.\d+)?|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)(.\S+)?))
+Value SRMS (\S+)
+Value Flags (\S+)
+
+Start
+ ^${Prefix}\s+${Area}\s+${RtType}\s+${SID}
+ ^\s+${Adv_Rtr}\s+${SRMS}\s+${Flags} -> Record

@@ -1,0 +1,21 @@
+#Command: /show system alarms
+#Timos: 20
+#Version: 1.0.0
+Value Filldown Critical (\d+)
+Value Filldown Major (\d+)
+Value Filldown Minor (\d+)
+Value Filldown Warning (\d+)
+Value Filldown Total (\d+)
+Value Required ind (\d+)
+Value date (\S+)
+Value time (\S+)
+Value severity (\S+)
+Value alarm (\S+)
+Value resource (.+)
+Value details (.+)
+
+Start
+ ^Alarms .Critical.${Critical} Major.${Major} Minor.${Minor} Warning.${Warning} Total.${Total}]
+ ^   Details
+ ^${ind}\s+${date}\s${time}\s+${severity}\s+${alarm}\s+${resource}
+ ^\s{3}${details} -> Record

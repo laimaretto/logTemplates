@@ -1,0 +1,52 @@
+#Command: /show router tunnel.table summary
+#Timos: 20
+#Version: 1.0.0
+Value Router (\S+)
+Value Total_Act (\d+)
+Value Total_Av (\d+)
+Value BGP_Act (\d+)
+Value BGP_Av (\d+)
+Value FPE_Act (\d+)
+Value FPE_Av (\d+)
+Value ISIS_Act (\d+)
+Value ISIS_Av (\d+)
+Value LDP_Act (\d+)
+Value LDP_Av (\d+)
+Value MPLS_fwd_pol_Act (\d+)
+Value MPLS_fwd_pol_Av (\d+)
+Value MPLS_tp_Act (\d+)
+Value MPLS_tp_Av (\d+)
+Value OSPF_Act (\d+)
+Value OSPF_Av (\d+)
+Value OSPFv3_Act (\d+)
+Value OSPFv3_Av (\d+)
+Value RIB_API_Act (\d+)
+Value RIB_API_Av (\d+)
+Value RSVP_Act (\d+)
+Value RSVP_Av (\d+)
+Value SDP_Act (\d+)
+Value SDP_Av (\d+)
+Value SR_pol_Act (\d+)
+Value SR_pol_Av (\d+)
+Value SR_te_Act (\d+)
+Value SR_te_Av (\d+)
+Value UDP_Act (\d+)
+Value UDP_Av (\d+)
+
+Start
+ ^Tunnel Table Summary .Router. ${Router}.
+ ^BGP\s+${BGP_Act}\s+${BGP_Av}
+ ^FPE\s+${FPE_Act}\s+${FPE_Av}
+ ^ISIS\s+${ISIS_Act}\s+${ISIS_Av}
+ ^LDP\s+${LDP_Act}\s+${LDP_Av}
+ ^MPLS-FWD-Policy\s+${MPLS_fwd_pol_Act}\s+${MPLS_fwd_pol_Av}
+ ^MPLS-TP\s+${MPLS_tp_Act}\s+${MPLS_tp_Av}
+ ^OSPF\s+${OSPF_Act}\s+${OSPF_Av}
+ ^OSPFv3\s+${OSPFv3_Act}\s+${OSPFv3_Av}
+ ^RIB-API\s+${RIB_API_Act}\s+${RIB_API_Av}
+ ^RSVP\s+${RSVP_Act}\s+${RSVP_Av}
+ ^SDP\s+${SDP_Act}\s+${SDP_Av}
+ ^SR-Policy\s+${SR_pol_Act}\s+${SR_pol_Av}
+ ^SR-TE\s+${SR_te_Act}\s+${SR_te_Av}
+ ^UDP\s+${UDP_Act}\s+${UDP_Av}
+ ^Total\s+${Total_Act}\s+${Total_Av}

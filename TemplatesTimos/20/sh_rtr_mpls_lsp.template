@@ -1,0 +1,13 @@
+#Command: /show router mpls lsp
+#Timos: 20
+#Version: 1.0.0
+Value Filldown LSP_name (\S+)
+Value Filldown Tun_id (\d)
+Value Filldown Fastfail (\S+)
+Value Filldown Adm ([uU][pP]|[Dd][oO]?[wW][nN])
+Value Filldown Opr ([uU][pP]|[Dd][oO]?[wW][nN])
+Value Required To ((\d+\.\d+\.\d+\.\d+)(.\d+)?|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)(.\S+)?)
+
+Start
+ ^${LSP_name}\s+${Tun_id}\s+${Fastfail}\s+${Adm}\s+${Opr}
+ ^\s+${To} -> Record

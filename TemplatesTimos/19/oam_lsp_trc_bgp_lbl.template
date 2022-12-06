@@ -1,0 +1,18 @@
+#Command: oam lsp.trace bgp.label prefix .+
+#Timos: 19
+#Version: 1.0.0
+Value Filldown to ((\d+\.\d+\.\d+\.\d+)(.\d+)?|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)(.\S+)?)
+Value Filldown hops_min (\d+)
+Value Filldown hops_max (\d+)
+Value Filldown pckts_bytes (\d+)
+Value ind (\d+)
+Value Required ip_hop ((\d+\.\d+\.\d+\.\d+)(.\d+)?|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?)(.\S+)?)
+Value rtt_ms (\S+?)
+Value rc (\d+)
+Value rc_obs (\S+?)
+Value rsc (\d+)
+
+Start
+ ^lsp.trace to ${to}. ${hops_min} hops min. ${hops_max} hops max. ${pckts_bytes} byte packets
+ ^${ind}\s+${ip_hop}\s+rtt.${rtt_ms}ms\s+rc.${rc}.${rc_obs}.\s+rsc.${rsc} -> Record
+ ^${ind}\s+${ip_hop}\s+rtt.${rtt_ms}ms\s+rc.${rc}.${rc_obs}\) -> Record

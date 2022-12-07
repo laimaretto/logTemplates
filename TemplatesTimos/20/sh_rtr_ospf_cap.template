@@ -1,0 +1,12 @@
+#Command: /show router ospf capabilities
+#Timos: 20
+#Version: 1.0.0
+Value Filldown scope (\S+)
+Value Filldown router_id ((\d+\.\d+\.\d+\.\d+)|(?:[a-fA-F0-9]{1,4}:|:){1,7}(?:[a-fA-F0-9]{1,4}|:?))
+Value Filldown cap_1 (\S+.+)
+Value cap_2 (\S+.+)
+
+Start
+ ^${scope}\s+${router_id}\s+${cap_1}
+ ^\s{30}${cap_1} -> Record
+ ^\s{34}${cap_2} -> Record

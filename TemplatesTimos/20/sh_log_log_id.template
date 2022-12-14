@@ -1,0 +1,15 @@
+#Command: /show log log.id .+
+#Timos: 20
+#Version: 1.0.0
+Value Filldown EventLog (\d+)
+Value id (\d+)
+Value date (\S+)
+Value hour (\S+)
+Value type (\S+\s+\S+?)
+Value Required info (.+)
+Value message (.+)
+
+Start
+  ^Event Log ${EventLog}
+  ^${id}\s+${date}\s+${hour}\s+${type}:\s+${info} -> Continue
+  ^"${message}" -> Record

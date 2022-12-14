@@ -1,0 +1,13 @@
+#Command: /show router ldp session
+#Timos: 20
+#Version: 1.0.0
+Value Peer_ldp_session (\S+)
+Value Adj_Type (\S+)
+Value State (\S+)
+Value Msg_sent (\d+)
+Value Msg_recv (\d+)
+Value up_time_d (\S+)
+Value up_time_h (\S+)
+
+Start
+  ^${Peer_ldp_session}\s+${Adj_Type}\s+${State}\s+${Msg_sent}\s+${Msg_recv}\s+${up_time_d}\s+${up_time_h} -> Record
